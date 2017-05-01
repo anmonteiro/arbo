@@ -2,9 +2,12 @@
   "name": "arbo",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava",
+    "build": "babel src -d lib",
+    "prepublish": "npm run build",
+    "prettier": "prettier --print-width 80 --single-quote --trailing-comma all --parser flow --write \"./src/**/**.js\""
   },
   "author": "António Nuno Monteiro <anmonteiro@gmail.com> (https://anmonteiro.com)",
   "license": "MIT",
@@ -15,5 +18,22 @@
   "bugs": {
     "url": "https://github.com/anmonteiro/arbo/issues"
   },
-  "homepage": "https://github.com/anmonteiro/arbo"
+  "homepage": "https://github.com/anmonteiro/arbo",
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "babel-cli": "^6.24.1",
+    "babel-plugin-dynamic-import-node": "^1.0.2",
+    "babel-preset-env": "^1.5.0",
+    "babel-register": "^6.24.1",
+    "prettier": "^1.2.2"
+  },
+  "ava": {
+    "files": [
+      "test/*test.js"
+    ],
+    "babel": "inherit",
+    "require": [
+      "babel-register"
+    ]
+  }
 }
