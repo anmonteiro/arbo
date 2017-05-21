@@ -2,7 +2,7 @@
 
 Arbo is tiny NPM package to facilitate interactive development. It allows removing
 a (potentially dirty) module and every module it requires from the require cache
-while preserving correctly cached modules.
+while preserving other unrelated cached modules.
 
 ## Installation
 
